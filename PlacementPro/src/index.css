@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-gradient-primary text-white font-medium rounded-lg 
+           hover:opacity-90 transition-opacity duration-200 shadow-lg 
+           shadow-primary-500/25;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-white text-gray-700 font-medium rounded-lg 
+           border border-gray-200 hover:bg-gray-50 transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6;
+  }
+
+  .card-glass {
+    @apply bg-white/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-6;
+  }
+
+  .card-glass-hover {
+    @apply bg-white/60 backdrop-blur-sm rounded-2xl border border-white/10 shadow-md 
+           hover:bg-white/80 hover:shadow-lg hover:border-primary-100/50 
+           transition-all duration-300 p-6;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-200 rounded-lg 
+           focus:ring-2 focus:ring-primary-500 focus:border-primary-500 
+           outline-none transition-all duration-200;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .stagger-children > * {
+    @apply animate-fade-in;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 50ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 100ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 150ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 200ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 250ms; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
+
+/* Custom focus ring */
+*:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+button, a, input, select, textarea {
+  @apply transition-all duration-200;
+}
