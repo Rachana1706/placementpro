@@ -1,0 +1,4 @@
+node_modules
+PlacementPro/node_modules
+dist
+.env
